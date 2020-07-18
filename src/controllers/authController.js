@@ -59,7 +59,7 @@ exports.logout = (req, res) => {
 // })
 
 exports.loginGithub = catchAsync(async(req,res,next)=>{
-    const { params} = req.query
+    const { params} = req.params
     res.send("ok", params)
 
 })
