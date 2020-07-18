@@ -59,8 +59,8 @@ exports.logout = (req, res) => {
 // })
 
 exports.loginGithub = catchAsync(async(req,res,next)=>{
-    const { params} = req.params
-    res.send("ok", params)
-
+    const data = await res.params
+    res.json({ status: "ok", data: { data } });
+  res.send({ status: "ok", data: { data } });
 })
 
