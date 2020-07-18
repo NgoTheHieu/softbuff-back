@@ -64,6 +64,6 @@ exports.getGithub =  catchAsync(async(req,res,next)=>{
 
 exports.loginGithub = catchAsync(async(req,res,next)=>{
     const data = await res
-    res.json("ok",data :data)
+    res.json({ status: "ok", data: data });
 })
 
