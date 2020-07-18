@@ -1,13 +1,11 @@
 var express = require("express");
 var router = express.Router();
 const {
-  loginWithEmail,
-  loginFacebook,
-  loginGithub,logout
+  loginGithub,
+  logout
 } = require("../src/controllers/authController");
 const { loginRequired } = require("../src/middlewares/auth");
-router.route("/login/facebook").get(loginFacebook);
-router.route("/login").post(loginWithEmail);
+router.route("/").get(loginGithub)
 router.route("/oauth_login/github")
 router.route("/oauth_login/github")
 
