@@ -12,7 +12,6 @@ const authRouter = require("./routes/auth")
 const userRouter =  require("./routes/users")
 const quesRouter = require("./routes/ques")
 const oauthRouter = require("./routes/oauth")
-const passport = require('passport');
 // 
 const cors = require("cors")
 //
@@ -40,16 +39,17 @@ app.use('/', indexRouter);
 app.use('/user', userRouter);
 app.use('/ques', quesRouter);
 app.use("/oauth",oauthRouter)
-app.get('/auth/github',
-  passport.authenticate('github'));
 
-app.get('/auth/github/callback', 
-  passport.authenticate('github', { failureRedirect: '/login' }),
-  function(req, res) {
-    // Successful authentication, redirect home.
-    res.redirect('/');
-  });
-app.use("/oauth",oauthRouter)
+// app.use("/oauth",oauthRouter)
+// app.get('/auth/github',
+//   passport.authenticate('github'));
+
+// app.get('/auth/github/callback', 
+//   passport.authenticate('github', { failureRedirect: '/login' }),
+//   function(req, res) {
+//     // Successful authentication, redirect home.
+//     res.redirect('/');
+//   });
 // app.get('/auth/github', passport.authenticate('github'));
 // app.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/login' }), (req, res) => {
 //   res.redirect(req.session.returnTo || '/');
