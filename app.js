@@ -40,9 +40,9 @@ app.use('/user', userRouter);
 app.use('/ques', quesRouter);
 app.use("/oauth",oauthRouter)
 
-// app.use("/oauth",oauthRouter)
-// app.get('/auth/github',
-//   passport.authenticate('github'));
+app.use("/oauth",oauthRouter)
+app.get('/auth/github',
+  passport.authenticate('github'));
 
 // app.get('/auth/github/callback', 
 //   passport.authenticate('github', { failureRedirect: '/login' }),

@@ -8,8 +8,8 @@ const {
 const { loginRequired } = require("../src/middlewares/auth");
 router.route("/login/facebook").get(loginFacebook);
 router.route("/login").post(loginWithEmail);
-router.route("/oauth_login/github")
-router.route("/oauth_login/github")
+// router.route("/oauth_login/github")
+// router.route("/oauth_login/github")
 
 router.route("/logout").get(loginRequired,logout)
 
