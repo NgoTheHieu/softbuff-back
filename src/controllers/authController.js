@@ -57,8 +57,9 @@ exports.logout = (req, res) => {
 //     const token = await user.generateToken()
 //     res.json({status:"ok",data:user,token})
 // })
-exports.getGithub =  catchAsync(async(req,res,next)=>{
-    
+exports.getoauth_login =  catchAsync(async(req,res,next)=>{
+    const params = await req.query
+    res.json({ status: "ok", data: params });
 })
 
 
