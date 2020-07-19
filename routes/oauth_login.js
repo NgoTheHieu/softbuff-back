@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const {
-  loginGithub
+  
 } = require("../src/controllers/authController");
 const { loginRequired } = require("../src/middlewares/auth");
 router.route("/").get(loginGithub)

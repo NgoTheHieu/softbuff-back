@@ -12,6 +12,7 @@ const authRouter = require("./routes/auth")
 const userRouter =  require("./routes/users")
 const quesRouter = require("./routes/ques")
 const oauthRouter = require("./routes/oauth")
+const oauthLogin_Router = require("./routes/oauth")
 // 
 const cors = require("cors")
 //
@@ -38,11 +39,11 @@ app.use('/auth', authRouter);
 app.use('/', indexRouter);
 app.use('/user', userRouter);
 app.use('/ques', quesRouter);
-app.use("/oauth",oauthRouter)
+app.use("/oauth_login",oauthLogin_Router)
 
 app.use("/oauth",oauthRouter)
-app.get('/auth/github',
-  passport.authenticate('github'));
+//app.get('/auth/github',
+//  passport.authenticate('github'));
 
 // app.get('/auth/github/callback', 
 //   passport.authenticate('github', { failureRedirect: '/login' }),
