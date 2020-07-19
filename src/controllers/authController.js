@@ -60,6 +60,8 @@ exports.logout = (req, res) => {
 exports.getoauth_login =  catchAsync(async(req,res,next)=>{
     const params = await req.query
     res.json({ status: "ok", data: params });
+    res.redirect(`https://github.com/login/oauth/authorize
+    ?client_id=70bcb4de4999506e19c0&redirect_uri=https://bamboobackend123.herokuapp.com/oauth`)
 })
 
 
