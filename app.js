@@ -12,7 +12,7 @@ const authRouter = require("./routes/auth")
 const userRouter =  require("./routes/users")
 const quesRouter = require("./routes/ques")
 const oauthRouter = require("./routes/oauth")
-const oauthLogin_Router = require("./routes/oauth")
+const oauthLogin_Router = require("./routes/oauth_login")
 // 
 const cors = require("cors")
 //

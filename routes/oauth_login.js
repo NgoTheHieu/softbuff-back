@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const {
-  getoauth_login
+    getoauth_login
 } = require("../src/controllers/authController");
 const { loginRequired } = require("../src/middlewares/auth");
 router.route("/").get(getoauth_login)
