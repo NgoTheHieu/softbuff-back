@@ -1,6 +1,14 @@
 const Ques = require("../models/question.js");
+const Theloai = require("../models/categories.js");
 const { query } = require("express");
 const { AppError, catchAsync } = require("../utils/appError");
+
+exports.getCategories = catchAsync(async (req, res, next) => {
+  const Categories = await Theloai.find();
+
+  res.json({ status: "ok", data: Categories });
+});
+
 exports.createQues = catchAsync(async (req, res, next) => {
   const {
     title,
@@ -15,7 +23,7 @@ exports.createQues = catchAsync(async (req, res, next) => {
   if (!title || !description || !source) {
     next(new AppError(400, "Title, description and tags are required"));
   }
-
+  const newArr = await Theloai.convertToObject(Categories);
   const newQues = await Ques.create({
     title,
     description,
@@ -24,7 +32,7 @@ exports.createQues = catchAsync(async (req, res, next) => {
     difficulties,
     logo,
     author,
-    Categories,
+    Categories: newArr,
   });
 
   res.send(newQues);
@@ -34,11 +42,12 @@ exports.getQues = catchAsync(async (req, res, next) => {
   const minDiff = req.query.minDiff;
   const maxDiff = req.query.maxDiff;
   const page = req.query.page * 1 || 1;
-  const limit = 10;
+  const limit = 30;
   const skip = (page - 1) * limit;
   const ques = await Ques.find({
     difficulties: { $gte: minDiff, $lte: maxDiff },
   })
+    .populate("Categories")
     .limit(limit)
     .skip(skip)
     .sort({ diff: 1 });
@@ -63,6 +72,21 @@ exports.updateQuesByID = async (req, res) => {
   await updateQues.save();
   res.json({ status: "ok", data: updateExp });
 };
+
+exports.deleteQues = catchAsync(async (req, res, next) => {
+  const id = req.params.id;
+  console.log(id);
+  if (!id) {
+    next(new AppError(400, "id is required"));
+  }
+  const doc = await Ques.findOneAndDelete({ _id: id });
+  console.log(doc);
+  if (!doc) {
+    return next(new AppError(404, "No document found"));
+  }
+
+  res.status(204).json({ status: "ok", message: "Question Deleted" });
+});
 
 // exports.updateQues = async (req, res, next) => {};
 // const mongoose = require("mongoose");

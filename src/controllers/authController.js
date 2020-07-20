@@ -66,6 +66,8 @@ exports.getoauth_login =  catchAsync(async(req,res,next)=>{
 
 exports.loginGithub = catchAsync(async(req,res,next)=>{
     const params = await req.query
+    // const body = await req.body
+    // const hello = await req.params
     res.json({ status: "ok", data: params });
 })
 

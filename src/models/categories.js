@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const schema = new mongoose.Schema({
     category: {
         type: String,
-        required: [true, "category"],
+        required: [true, "category is required"],
         unique: true,
         lowercase: true,
         trim: true
@@ -18,14 +18,14 @@ schema.statics.convertToObject = async function (arr) {
     // find the tag from each string from Tag model
     // this = Tag
     let foo = arr.map(async e => {
-        let bar = await this.findOne({ tag: e.toLowerCase().trim() })
+        let bar = await this.findOne({ category : e.toLowerCase().trim() })
         if (bar)
             return bar
-        bar = await this.create({ tag: e.toLowerCase().trim() })
+        bar = await this.create({ category: e.toLowerCase().trim() })
         return bar
     })
     let result = await Promise.all(foo)
     return result
 }
 
-module.exports = mongoose.model("Category", schema)
+module.exports = mongoose.model("Theloai", schema)

@@ -20,15 +20,20 @@ const schema = new mongoose.Schema({
     trim: true,
     required: true,
   },
-  sponsors: [{
-    type: String,
-    trim: true,
-    required: true,
-  }],
-  Categories: [{
-    type:String,
-    required: true
-}],
+  sponsors: [
+    {
+      type: String,
+      trim: true,
+      required: true,
+    },
+  ],
+  Categories: [
+    {
+      type: mongoose.Schema.ObjectId,
+      ref: "Theloai",
+      required: true,
+    }
+  ],
   logo: {
     type: String,
     trim: true,
@@ -43,7 +48,7 @@ const schema = new mongoose.Schema({
     type: String,
     trim: true,
     required: false,
-  }
+  },
   // averageRating: {
   //   type: Number,
   //   default: 0,
