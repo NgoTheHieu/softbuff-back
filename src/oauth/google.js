@@ -81,6 +81,5 @@ exports.googleStrategyConfig = new GoogleStrategy({
       });
     }
   });
-  passport.use('google', googleStrategyConfig);
-  refresh.use('google', googleStrategyConfig);
+
   
