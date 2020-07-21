@@ -1,4 +1,4 @@
-// const Tag = require("../models/tag")
+// const Tag = require("../models/categories")
 // const {AppError, catchAsync}= require("../utils/appError")
 
 // exports.deleteOne = Model => catchAsync(async(req,res,next)=>{
@@ -6,7 +6,7 @@
 //     if(Model.modelName === "Ques"){
 //         filterObj._id = req.params.eid
 //         filterObj.host = req.user._id
-//     } else if (Model.modelName === "Review"){
+//     } else if (Model.modelName === "Comment"){
 //         filterObj._id = req.params.rid
 //         filterObj.user = req.user._id
 //     }

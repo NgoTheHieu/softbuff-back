@@ -56,9 +56,9 @@ exports.getQues = catchAsync(async (req, res, next) => {
 });
 exports.getQuesByID = async (req, res) => {
   console.log(req.params);
-  const getQues = await Ques.findById({
+  const getQues = await Ques.findOne({
     _id: req.params.id,
-  });
+  }).populate("Categories");
   res.send(getQues);
 };
 

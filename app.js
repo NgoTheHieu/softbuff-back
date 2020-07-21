@@ -13,6 +13,7 @@ const userRouter =  require("./routes/users")
 const quesRouter = require("./routes/ques")
 const oauthRouter = require("./routes/oauth")
 const oauthLogin_Router = require("./routes/oauth_login")
+const commentRouter = require("./routes/comment")
 // 
 const cors = require("cors")
 //
@@ -39,6 +40,8 @@ app.use('/auth', authRouter);
 app.use('/', indexRouter);
 app.use('/user', userRouter);
 app.use('/ques', quesRouter);
+
+// app.use('/ques/:id/comments/', commentRouter);
 app.use("/oauth_login",oauthLogin_Router)
 
 app.use("/oauth",oauthRouter)

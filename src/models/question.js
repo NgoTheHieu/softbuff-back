@@ -34,6 +34,13 @@ const schema = new mongoose.Schema({
       required: true,
     }
   ],
+  comments:[
+    {
+      type: mongoose.Schema.ObjectId,
+      ref: "Comment"
+    }
+  ]
+  ,
   logo: {
     type: String,
     trim: true,
