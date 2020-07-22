@@ -42,7 +42,7 @@ exports.getQues = catchAsync(async (req, res, next) => {
   const minDiff = req.query.minDiff;
   const maxDiff = req.query.maxDiff;
   const page = req.query.page * 1 || 1;
-  const limit = 30;
+  const limit = 7;
   const skip = (page - 1) * limit;
   const ques = await Ques.find({
     difficulties: { $gte: minDiff, $lte: maxDiff },
