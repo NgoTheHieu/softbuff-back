@@ -42,7 +42,7 @@ exports.getQues = catchAsync(async (req, res, next) => {
   const minDiff = req.query.minDiff;
   const maxDiff = req.query.maxDiff;
   const page = req.query.page * 1 || 1;
-  const limit = 7;
+  const limit = 40;
   const skip = (page - 1) * limit;
   const ques = await Ques.find({
     difficulties: { $gte: minDiff, $lte: maxDiff },
@@ -51,7 +51,6 @@ exports.getQues = catchAsync(async (req, res, next) => {
     .limit(limit)
     .skip(skip)
     .sort({ diff: 1 });
-  res.json({ status: "ok", data: { ques } });
   res.send({ status: "ok", data: { ques } });
 });
 exports.getQuesByID = async (req, res) => {
