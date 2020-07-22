@@ -52,6 +52,7 @@ exports.getQues = catchAsync(async (req, res, next) => {
     .skip(skip)
     .sort({ diff: 1 });
   res.send({ status: "ok", data: { ques } });
+  res.json({ status: "ok", data: { ques } });
 });
 exports.getQuesByID = async (req, res) => {
   console.log(req.params);
