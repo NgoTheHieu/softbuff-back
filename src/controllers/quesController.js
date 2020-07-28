@@ -51,8 +51,8 @@ exports.getQues = catchAsync(async (req, res, next) => {
     .limit(limit)
     .skip(skip)
     .sort({ diff: 1 });
-  res.send({ status: "ok", data: { ques } });
-  res.json({ status: "ok", data: { ques } });
+  res.send({ status: "ok", data: { ques, limit, skip } });
+  res.json({ status: "ok", data: { ques, limit, skip } });
 });
 exports.getQuesByID = async (req, res) => {
   console.log(req.params);
@@ -88,19 +88,6 @@ exports.deleteQues = catchAsync(async (req, res, next) => {
   res.status(204).json({ status: "ok", message: "Question Deleted" });
 });
 
-// exports.updateQues = async (req, res, next) => {};
-// const mongoose = require("mongoose");
 
-// const schema = new mongoose.Schema({
-//   title: String,
-//   pictureURL: String,
-//   description: String,
-//   difficulties: String,
-//   rating: String,
-//   source: String,
 
-// });
 
-// const Question = mongoose.model("Question", schema);
-
-// module.exports = Question;

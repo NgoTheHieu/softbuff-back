@@ -17,6 +17,10 @@ const schema = new mongoose.Schema(
         }
       },
     },
+    github:{
+      type:String
+    }
+    ,
     name: {
       type: String,
       required: [true, "Name is required"],

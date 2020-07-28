@@ -43,5 +43,5 @@ exports.createComment = catchAsync(async (req, res, next) => {
 
 
 
-// exports.deleteComment = deleteOne(Comment)
+
 
