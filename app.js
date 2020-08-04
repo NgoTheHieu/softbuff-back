@@ -15,6 +15,7 @@ const oauthRouter = require("./routes/oauth");
 const oauthLogin_Router = require("./routes/oauth_login");
 const commentRouter = require("./routes/comment");
 const weatherRouter = require("./routes/weather")
+const chatRouter = require("./routes/chatroom")
 //
 const cors = require("cors");
 //
@@ -42,4 +43,5 @@ app.use("/ques", quesRouter);
 app.use("/oauth_login", oauthLogin_Router);
 app.use("/oauth", oauthRouter);
 app.use("/weather", weatherRouter);
+app.use("/chatroom",chatRouter)
 module.exports = app;
