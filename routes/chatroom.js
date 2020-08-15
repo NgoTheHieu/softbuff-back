@@ -1,8 +1,8 @@
-const express = express()
+const express = require("express")
 const router = express.Router()
-const Room = require("./src/models/room")
+const Room = require("../src/models/room")
 
-router.route("/").get((req,res,next)=>{
+router.route("/").get(async (req,res,next)=>{
     try{
         await Room.insertMany([
             {

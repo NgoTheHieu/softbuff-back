@@ -17,10 +17,9 @@ const schema = new mongoose.Schema(
         }
       },
     },
-    github:{
-      type:String
-    }
-    ,
+    github: {
+      type: String,
+    },
     name: {
       type: String,
       required: [true, "Name is required"],
@@ -29,7 +28,7 @@ const schema = new mongoose.Schema(
     password: {
       type: String,
     },
-    pictureURL:{
+    pictureURL: {
       type: String,
       trim: true,
     },
